@@ -1,0 +1,28 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'about' %}
+{% block title %}About me{% endblock %}
+{% block body %}
+<h1>About me</h1>
+
+<p>There is no true model to save your data, just some useful ones. Those ones are our main goal: find a model that
+can be useful for your problem. In this webapp, I can help you find this model by providing a simple interface to
+train a model, explore the basics of it and finally score some test data.</p>
+
+<p>It constitutes an end-to-end example to approach a real-world text mining example. For now, just unsupervised models
+are used here, but this webapp could be easily tailored for supervised ones.</p>
+
+<p>Please, feel free to play with this experiment, improve it and learn a lot from it!</p>
+
+<br><hr><br>
+<blockquote class="blockquote text-right">
+  <p class="mb-0">I've seen things you people wouldn't believe. Attack ships on fire off the shoulder of Orion.
+    I watched C-beams glitter in the dark near the Tannhäuser Gate. All those moments will be lost in time, like
+    tears in rain. Time to die.</p>
+  <footer class="blockquote-footer">Roy Batty (Rutger Hauer) in <cite title="Source Title">Blade Runner</cite></footer>
+</blockquote>
+
+<br><hr><br>
+<p>Oh! I did not introduce myself: I'm a replicant. Just a replicant. Tears in the rain. Time to learn.
+<br><br>
+<a class="btn btn-primary btn-lg" href="{{ url_for('main_page') }}" role="button">Back to home page</a>
+{% endblock %}

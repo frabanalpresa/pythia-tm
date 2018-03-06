@@ -1,0 +1,60 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'train' %}
+{% block title %}Train{% endblock %}
+{% block body %}
+<h1>Train: Model selection</h1>
+<p> </p><br>
+
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <div class="list-group">
+      <a href="{{ url_for('train_page.train_kmeans') }}" class="list-group-item list-group-item-action">TF-IDF + K-means</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">TF-IDF + K-medoids</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">TF-IDF + Spectral Clustering</a>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Text clustering</h4>
+        <p class="card-text">Group documents into different clusters to see similar patterns inside the clusters.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p> </p><br>
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <div class="list-group">
+      <a href="{{ url_for('train_page.train_lsi') }}" class="list-group-item list-group-item-action">TF-IDF + LSI</a>
+      <a href="{{ url_for('train_page.train_lda') }}" class="list-group-item list-group-item-action">TF-IDF + LDA</a>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Topic modeling</h4>
+        <p class="card-text">Obtain different groups as a result of modeling documents via semantics, with more homogeneous clusters as a result.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<p> </p><br>
+<div class="row">
+  <div class="col-md-5 col-md-offset-2">
+    <div class="list-group">
+      <a href="{{ url_for('train_page.train_w2v') }}" class="list-group-item list-group-item-action">Word2Vec</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">GloVe</a>
+      <a href="#" class="list-group-item list-group-item-action disabled">Doc2Vec</a>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div class="card text-white bg-primary mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Word & doc embeddings</h4>
+        <p class="card-text">Use word embeddings to generalize better, and to provide a more approximate view of the application domain.</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

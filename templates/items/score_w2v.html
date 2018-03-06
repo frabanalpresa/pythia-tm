@@ -1,0 +1,22 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'score' %}
+{% block title %}Score{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+      <h1>Score: Word2Vec</h1>
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('score_page.save_scores') }}" role="button">Save scores</a>
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('score_page.score_main') }}" role="button">Score another model</a>
+  </div>
+</div>
+<hr>
+
+{% if script is not none %}
+  {{ script|safe }}
+  {{ div|safe }}
+{% endif%}
+{% endblock %}

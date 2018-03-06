@@ -1,0 +1,52 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'home' %}
+{% block title %}Home{% endblock %}
+{% block body %}
+
+<div class="row">
+  <div class="col-xs-4">
+    <div class="jumbotron">
+      <h1 class="display-3">Pythia-TM</h1>
+      <p class="lead">A Swiss army knife tool to manage your text-mining tasks in a graphic, hussle-free way. Because
+      working with texts should not be a headache.</p>
+      <hr class="my-4">
+      <p>Pythia-TM is a tool that contains several algorithms to be applied in textual data. With a user-friendly GUI
+        and the power of open source tools in its backend, this tool aims to provide powerful capabilities for great
+        document analysis, without a deep user knowledge in the field.</p>
+      <p class="lead">
+        <a class="btn btn-primary btn-lg" href="{{ url_for('about_page') }}" role="button">Learn more</a>
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-4">
+    <div class="card bg-light mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Train your model</h4>
+        <p class="card-text">Train a supervised or unsupervised model from a set of documents.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('train_page.train_main') }}" role="button">Go</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="card bg-light mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Explore a model</h4>
+        <p class="card-text">Given a trained model, explore its main features..</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('explore_page.explore_main') }}" role="button">Go</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-4">
+    <div class="card bg-light mb-3" style="max-width: 20rem;">
+      <div class="card-body">
+        <h4 class="card-title">Score new data</h4>
+        <p class="card-text">Given a trained model, score new data from the same domain.</p>
+        <a class="btn btn-primary btn-lg" href="{{ url_for('score_page.score_main') }}" role="button">Go</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

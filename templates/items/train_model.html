@@ -1,0 +1,101 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'train' %}
+{% block title %}Train{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    {% if alg == 'kmeans' %}
+      <h1>Train: TF-IDF / K-means</h1>
+    {% endif %}
+    {% if alg == 'lsi' %}
+      <h1>Train: TF-IDF / LSI</h1>
+    {% endif %}
+    {% if alg == 'lda' %}
+      <h1>Train: TF-IDF / LDA</h1>
+    {% endif %}
+    {% if alg == 'w2v' %}
+      <h1>Train: Word2Vec</h1>
+    {% endif %}
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('train_page.train_main') }}" role="button">Back to model selection</a>
+  </div>
+</div>
+<hr>
+
+<div class="row">
+  <div class="col-md-3 col-md-offset-1">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+          <h4 class="card-title">Preprocessing</h4>
+          <p class="card-text">Preprocess your documents using one or more options.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-md-offset-1">
+    <div class="card text-white bg-primary mb-3">
+      <div class="card-body">
+        {% if alg in ['kmeans', 'lsi', 'lda'] %}
+          <h4 class="card-title">TF-IDF</h4>
+          <p class="card-text">Model your documents via Bag of Words and TF-IDF measures.</p>
+        {% endif %}
+        {% if alg == 'w2v' %}
+          <h4 class="card-title">Word2vec</h4>
+          <p class="card-text">Embed your words by training a model on your corpus.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+    {% if alg in ['kmeans','lsi','lda'] %}
+      <div class="col-md-3">
+        <div class="card text-white bg-primary mb-3">
+          <div class="card-body">
+            {% if alg == 'kmeans' %}
+              <h4 class="card-title">K-means</h4>
+              <p class="card-text">Use a classic k-means clustering algorithm to group your documents.</p>
+            {% endif %}
+            {% if alg == 'lsi' %}
+              <h4 class="card-title">LSI</h4>
+              <p class="card-text">Use SVD algorithm to decompose the original matrix and get groups based on topics.</p>
+            {% endif %}
+            {% if alg == 'lda' %}
+              <h4 class="card-title">LDA</h4>
+              <p class="card-text">Use generative mixture of models to explain topics in your corpus.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endif %}
+</div>
+<hr>
+
+<h2>Options</h2>
+<div class="row">
+  <div class="col-md-6">
+    <form method="post", enctype="multipart/form-data">
+        {{ form.csrf_token }}
+        {% for input in form %}
+            {% if input.type != 'CSRFTokenField' %}
+                <div class="form-group">
+                    {# Label #}
+                    {{ input.label }}
+                    {# Input #}
+                    {{ input(class="form-control") }}
+                    {# Errors #}
+                    {% if input.errors %}
+                        <div class="has-error">
+                        {% for error in input.errors %}
+                            <label class="help-block">
+                                {{ error }}
+                            </label>
+                        {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        {% endfor %}
+        <input type="submit" class="btn btn-primary" value="Go!">
+    </form>
+  </div>
+</div>
+{% endblock %}

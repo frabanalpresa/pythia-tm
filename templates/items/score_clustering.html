@@ -1,0 +1,45 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'score' %}
+{% block title %}Score{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-md-6 col-md-offset-2">
+      {% if algorithm == 'kmeans' %}
+        <h1>Score: K-means</h1>
+      {% endif %}
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('score_page.save_scores') }}" role="button">Save scores</a>
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('score_page.score_main') }}" role="button">Score another model</a>
+  </div>
+</div>
+<hr>
+
+{% if script is not none %}
+  {{ script|safe }}
+  {{ div|safe }}
+{% endif%}
+<hr>
+
+{% if centroids is not none %}
+    <h2>Clusters info</h2>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Cluster</th>
+          <th scope="col">Components</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for key, value in centroids.items() %}
+          <tr>
+            <th scope="row">{{ key|safe }}</th>
+            <td>{{ value|safe }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+{% endif %}
+{% endblock %}

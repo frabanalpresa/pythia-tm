@@ -1,0 +1,38 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'score' %}
+{% block title %}Score{% endblock %}
+{% block body %}
+<h1>Score a model</h1>
+<hr>
+<p> </p><br>
+
+<div class="row">
+<div class="col-md-6">
+  <form method="post", enctype="multipart/form-data">
+      {{ form.csrf_token }}
+      {% for input in form %}
+          {% if input.type != 'CSRFTokenField' %}
+              <div class="form-group">
+                  {# Label #}
+                  {{ input.label }}
+                  {# Input #}
+                  {{ input(class="form-control") }}
+                  {# Errors #}
+                  {% if input.errors %}
+                      <div class="has-error">
+                      {% for error in input.errors %}
+                          <label class="help-block">
+                              {{ error }}
+                          </label>
+                      {% endfor %}
+                      </div>
+                  {% endif %}
+              </div>
+          {% endif %}
+      {% endfor %}
+      <input type="submit" class="btn btn-primary" value="Go!">
+  </form>
+</div>
+</div>
+
+{% endblock %}

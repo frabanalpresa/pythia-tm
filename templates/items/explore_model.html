@@ -1,0 +1,148 @@
+{% extends 'layouts/master.html' %}
+{% set active_page = 'explore' %}
+{% block title %}Explore{% endblock %}
+{% block body %}
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+      {% if algorithm == 'lsi' %}
+        <h1>Explore: LSI</h1>
+      {% endif %}
+      {% if algorithm == 'lda' %}
+        <h1>Explore: LDA</h1>
+      {% endif %}
+      {% if algorithm == 'kmeans' %}
+        <h1>Explore: K-means</h1>
+      {% endif %}
+      {% if algorithm == 'w2v' %}
+        <h1>Explore: Word2Vec</h1>
+      {% endif %}
+  </div>
+  <div class="col-md-2">
+    <a class="btn btn-primary btn-lg" href="{{ url_for('explore_page.explore_main') }}" role="button">Explore another model</a>
+  </div>
+</div>
+<hr>
+
+{% if orig_data is not none %}
+  <h3>Original data sample</h3>
+  {% for item in orig_data %}
+    <div class="row">
+      <div class="col-xs-12">
+        {{ item|safe }}
+      </div>
+    </div>
+    <p> </p>
+  {% endfor %}
+  <hr>
+{% endif %}
+
+{% if clean_data is not none %}
+  <h3>Preprocessed data sample</h3>
+  {% for item in clean_data %}
+    <div class="row">
+      <div class="col-xs-12">
+        {{ item|safe }}
+      </div>
+    </div>
+    <p> </p>
+  {% endfor %}
+  <hr>
+{% endif %}
+
+{% if algorithm in ['lsi', 'lda', 'kmeans'] %}
+  {% if dict_results is not none %}
+    <h3>Word mapping</h3>
+    <div class="row">
+      {% for key, value in dict_results.items() %}
+        {% if value <= 5 %}
+          <div class="col">
+            <div class="card border-primary mb-3">
+              <div class="card-header" align="center">{{ value|safe }}</div>
+              <p class="card-text" align="center">{{ key|safe }}</p>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <hr>
+  {% endif %}
+
+  {% if algorithm == 'kmeans' %}
+    {% if model_results is not none %}
+      <h3>Clusters</h3>
+      <ul class="list-group">
+      {% for key, value in model_results.items() %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ value|safe }}
+          <span class="badge badge-primary badge-pill">{{ key|safe }}</span>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% else %}
+    {% if model_results is not none %}
+      <h3>Topics</h3>
+      <ul class="list-group">
+      {% for key, value in model_results.items() %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          {{ value|safe }}
+          <span class="badge badge-primary badge-pill">{{ key|safe }}</span>
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+  {% endif %}
+{% else %}
+  <h3>Similarity</h3>
+  <div class="row">
+    <div class="col-md-6">
+      <form method="post", enctype="multipart/form-data">
+          {{ form.csrf_token }}
+          {% for input in form %}
+              {% if input.type != 'CSRFTokenField' %}
+                  <div class="form-group">
+                      {# Label #}
+                      {{ input.label }}
+                      {# Input #}
+                      {{ input(class="form-control") }}
+                      {# Errors #}
+                      {% if input.errors %}
+                          <div class="has-error">
+                          {% for error in input.errors %}
+                              <label class="help-block">
+                                  {{ error }}
+                              </label>
+                          {% endfor %}
+                          </div>
+                      {% endif %}
+                  </div>
+              {% endif %}
+          {% endfor %}
+          <input type="submit" class="btn btn-primary" value="Go!">
+      </form>
+    </div>
+  </div>
+
+  <p> </p><br>
+  {% if model_results is not none %}
+    <div class="row">
+    {% set counter = 1 %}
+    {% for item in model_results %}
+        <div class="col">
+            <div class="card border-primary mb-3">
+              <div class="card-header" align="center">{{ item[0]|safe }}</div>
+              <p class="card-text" align="center">{{ item[1]|safe }}</p>
+            </div>
+        </div>
+        {% set counter = counter + loop.index0 %}
+        {% if counter == 5 %}
+          {% set counter = 1 %}
+          </div>
+          <div class="row">
+        {% endif %}
+    {% endfor %}
+    </div>
+    <p> </p><br>
+  {% endif %}
+{% endif %}
+{% endblock %}
