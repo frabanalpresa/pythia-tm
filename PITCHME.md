@@ -21,7 +21,8 @@
 There are plenty of solutions to perform TM tasks in the market. This one is focused on explaining each part inside
 the app, and easily generating results, providing a good start for iterating towards the desired solution.
 
-<hr>
+@fa[arrow-down]
++++
 
 While focusing on classic NLP algorithms, it is good to notice that some cutting-edge algorithms can also be included,
 and it is a good way to incorporate state-of-the-art knowledge into graphical tools.
