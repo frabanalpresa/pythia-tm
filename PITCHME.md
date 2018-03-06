@@ -18,6 +18,13 @@
 
 ### Yet Another Text Mining (YATM) tool
 
+There are plenty of solutions to perform TM tasks in the market. This one is focused on explaining each part inside
+the app, and easily generating results, providing a good start for iterating towards the desired solution.
+
+<hr>
+
+While focusing on classic NLP algorithms, it is good to notice that some cutting-edge algorithms can also be included,
+and it is a good way to incorporate state-of-the-art knowledge into graphical tools.
 
 
 @fa[arrow-down]
@@ -76,7 +83,10 @@
 
 ### Train a model
 
-
+- In the main page, press "Go" in "Train your model".
+- Select workflow to apply
+- Fill the form with the required information.
+- Press "Go!"
 
 @fa[arrow-down]
 +++
@@ -118,13 +128,16 @@
 
 **Save your model**
 
-
+In the form to be filled out before training the model, you can input an absolute path to wherever you want the model saved. It is not required, but it is good to have models saved for iterating fast.
 
 ---
 @title[Explore]
 
 ### Explore your model
 
+- In the main page, press "Go" in "Explore a model".
+- Choose where model is found in your local filesystem.
+- Press Go!
 
 @fa[arrow-down]
 +++
@@ -132,13 +145,32 @@
 
 **What to expect?**
 
-
+<table style="color:gray; font-size:1em">
+  <tr>
+    <td>Sample of original data</td>
+  </tr>
+  <tr class="fragment">
+    <td>Preprocessed samples</td>
+  </tr>
+  <tr class="fragment">
+    <td>Clustering components</td>
+  </tr>
+  <tr class="fragment">
+    <td>Topic components</td>
+  </tr>
+  <tr class="fragment">
+    <td>Word similarities</td>
+  </tr>
+</table>
 
 ---
 @title[Score]
 
 ### Score over new data
 
+- In the main page, press "Go" in "Score new data".
+- Choose where data and model are found in your local filesystem.
+- Press Go!
 
 @fa[arrow-down]
 +++
@@ -146,6 +178,17 @@
 
 **Explore your scores**
 
+<table style="color:gray; font-size:1em">
+  <tr>
+    <td>Score distribution</td>
+  </tr>
+  <tr class="fragment">
+    <td>Clustering main components</td>
+  </tr>
+  <tr class="fragment">
+    <td>Topic components</td>
+  </tr>
+</table>
 
 @fa[arrow-down]
 +++
@@ -153,6 +196,7 @@
 
 **Save the scores**
 
+If you need your scores later on, you can save them as a *CSV* file. In this file, you will find the score for each row provided as input, in the same order.
 
 ---
 @title[Final comments]
