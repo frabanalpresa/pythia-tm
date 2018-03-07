@@ -18,7 +18,7 @@ A list of main features would include:
 ## Where to get it?
 You can find the code for this app in the following URL:
 
-[http://github.com/frabanalpresa/pythia-tm](http://github.com/frabanalpresa/pythia-tm)
+[https://github.com/frabanalpresa/pythia-tm](https://github.com/frabanalpresa/pythia-tm)
 
 
 ## How to install it
@@ -27,7 +27,7 @@ It is recommended to use a virtual environment to test this tool. In order to do
 environments, or *virtualenv* tool. Making use of conda environments, a ```.yml``` file is provided to configure the environment:
 
 ```
-git clone http://github.com/frabanalpresa/pythia-tm
+git clone https://github.com/frabanalpresa/pythia-tm
 cd textminer
 conda env create -f environment.yml
 source activate textminer
@@ -36,7 +36,7 @@ source activate textminer
 wherease using *virtualenv* tool is also possible for those who do not have a Conda distribution installed:
 
 ```
-git clone http://github.com/frabanalpresa/pythia-tm
+git clone https://github.com/frabanalpresa/pythia-tm
 cd textminer
 pip3 install virtualenv
 virtualenv --python=python3 .venv
