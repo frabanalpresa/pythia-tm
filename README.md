@@ -28,16 +28,16 @@ environments, or *virtualenv* tool. Making use of conda environments, a ```.yml`
 
 ```
 git clone https://github.com/frabanalpresa/pythia-tm
-cd textminer
+cd pythia-tm
 conda env create -f environment.yml
-source activate textminer
+source activate pythia-tm
 ```
 
 wherease using *virtualenv* tool is also possible for those who do not have a Conda distribution installed:
 
 ```
 git clone https://github.com/frabanalpresa/pythia-tm
-cd textminer
+cd pythia-tm
 pip3 install virtualenv
 virtualenv --python=python3 .venv
 source .venv/bin/activate

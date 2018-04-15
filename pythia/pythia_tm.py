@@ -6,8 +6,8 @@ import numpy as np
 import gensim
 from nltk.stem import PorterStemmer
 from nltk.stem.wordnet import WordNetLemmatizer
-from nltk.corpus import stopwords
 from sklearn.cluster import KMeans
+from pythia.stopwords import stopwords
 
 
 class TokenizedSentences(object):

@@ -27,38 +27,46 @@ def train_fun(algorithm, form):
 @train_page.route('/train/kmeans', methods=('GET', 'POST'))
 def train_kmeans():
     form = KmeansForm()
-    form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
     if form.validate_on_submit():
         session['model_feats'] = train_fun('kmeans', form)
         return redirect(url_for('explore_page.explore_kmeans'))
+    else:
+        form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
+
     return render_template('items/train_model.html', alg='kmeans', form=form)
 
 
 @train_page.route('/train/lsi', methods=('GET', 'POST'))
 def train_lsi():
     form = LsiForm()
-    form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
     if form.validate_on_submit():
         session['model_feats'] = train_fun('lsi', form)
         return redirect(url_for('explore_page.explore_lsi'))
+    else:
+        form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
+
     return render_template('items/train_model.html', alg='lsi', form=form)
 
 
 @train_page.route('/train/lda', methods=('GET', 'POST'))
 def train_lda():
     form = LsiForm()
-    form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
     if form.validate_on_submit():
         session['model_feats'] = train_fun('lda', form)
         return redirect(url_for('explore_page.explore_lda'))
+    else:
+        form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
+
     return render_template('items/train_model.html', alg='lda', form=form)
 
 
 @train_page.route('/train/w2v', methods=('GET', 'POST'))
 def train_w2v():
     form = W2vForm()
-    form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
     if form.validate_on_submit():
         session['model_feats'] = train_fun('w2v', form)
         return redirect(url_for('explore_page.explore_w2v'))
+    else:
+        form.model_file.data = f'{os.getcwd()}/models/mymodel.pythia'
+
     return render_template('items/train_model.html', alg='w2v', form=form)
