@@ -1,7 +1,7 @@
 name: pythia-tm
 
 dependencies:
-  - python=3.6
+  - python
   - numpy
   - nltk
   - bokeh
@@ -11,5 +11,5 @@ dependencies:
   - Flask
   - scikit-learn
   - pip:
-    - https://pypi.python.org/packages/60/3a/58c629472d10539ae5167dc7c1fecfa95dd7d0b7864623931e3776438a24/Flask_WTF-0.14.2-py2.py3-none-any.whl
-    - https://pypi.python.org/packages/7e/a3/3ba4cec2becb7c4e65dfa95052c7050832c12a1fc8a475ac572842c460bc/Flask_Session-0.3.1-py2.py3-none-any.whl
+    - Flask-WTF
+    - Flask-Session

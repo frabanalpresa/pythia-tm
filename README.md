@@ -28,20 +28,33 @@ environments, or *virtualenv* tool. Making use of conda environments, a ```.yml`
 
 ```
 git clone https://github.com/frabanalpresa/pythia-tm
-cd textminer
+cd pythia-tm
 conda env create -f environment.yml
-source activate textminer
+source activate pythia-tm
 ```
 
 wherease using *virtualenv* tool is also possible for those who do not have a Conda distribution installed:
 
 ```
 git clone https://github.com/frabanalpresa/pythia-tm
-cd textminer
+cd pythia-tm
 pip3 install virtualenv
 virtualenv --python=python3 .venv
 source .venv/bin/activate
 pip3 install -r requirements.txt
+```
+
+After activating the environment, download NLTK additional resources:
+
+- Enter Python:
+```
+python
+```
+
+- Download NLTK resoures:
+```python
+import nltk
+nltk.download('wordnet')
 ```
 
 ## Dependencies
@@ -64,7 +77,7 @@ scikit_learn==0.19.1
 Once dependencies are met, just execute the main file in this repo:
 
 ```
-python3 app.py
+python app.py
 ```
 
 You can access the main page at [http://127.0.0.1:5000], and then navigate through the tool.

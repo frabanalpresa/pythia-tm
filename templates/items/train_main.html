@@ -8,7 +8,7 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-2">
     <div class="list-group">
-      <a href="{{ url_for('train_page.train_kmeans') }}" class="list-group-item list-group-item-action">TF-IDF + K-means</a>
+      <a href="{{ url_for('train_page.train_model') }}?arg=kmeans" class="list-group-item list-group-item-action">TF-IDF + K-means</a>
       <a href="#" class="list-group-item list-group-item-action disabled">TF-IDF + K-medoids</a>
       <a href="#" class="list-group-item list-group-item-action disabled">TF-IDF + Spectral Clustering</a>
     </div>
@@ -26,8 +26,8 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-2">
     <div class="list-group">
-      <a href="{{ url_for('train_page.train_lsi') }}" class="list-group-item list-group-item-action">TF-IDF + LSI</a>
-      <a href="{{ url_for('train_page.train_lda') }}" class="list-group-item list-group-item-action">TF-IDF + LDA</a>
+      <a href="{{ url_for('train_page.train_model') }}?arg=lsi" class="list-group-item list-group-item-action">TF-IDF + LSI</a>
+      <a href="{{ url_for('train_page.train_model') }}?arg=lda" class="list-group-item list-group-item-action">TF-IDF + LDA</a>
     </div>
   </div>
   <div class="col-md-5">
@@ -43,7 +43,7 @@
 <div class="row">
   <div class="col-md-5 col-md-offset-2">
     <div class="list-group">
-      <a href="{{ url_for('train_page.train_w2v') }}" class="list-group-item list-group-item-action">Word2Vec</a>
+      <a href="{{ url_for('train_page.train_model') }}?arg=w2v" class="list-group-item list-group-item-action">Word2Vec</a>
       <a href="#" class="list-group-item list-group-item-action disabled">GloVe</a>
       <a href="#" class="list-group-item list-group-item-action disabled">Doc2Vec</a>
     </div>
