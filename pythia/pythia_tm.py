@@ -125,7 +125,7 @@ class PythiaTM:
             self.model_feats.append(clean_data.head().values.tolist())
 
         # Lowercase first
-        clean_data = clean_data.str.lower()
+        clean_data = clean_data.astype(str).str.lower()
 
         if 'clean' in self._prep_opts:
             # Remove punctuation from gensim module

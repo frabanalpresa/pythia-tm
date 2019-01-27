@@ -36,6 +36,7 @@ def train_fun(algorithm, form):
     # Instantiate a function, and train the model.
     model = PythiaTM(algorithm)
     model.train(form)
+    session['model'] = model
 
     # Save the model in the provided path
     if form.model_file.data.endswith('.pythia'):
