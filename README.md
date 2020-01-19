@@ -58,19 +58,19 @@ nltk.download('wordnet')
 ```
 
 ## Dependencies
-Tool was tested for Python 3.6 and the following module versions:
+Tool was tested for Python 3.7 and the following module versions:
 
 ```
-numpy==1.12.1
-Flask_Session==0.3.1
-nltk==3.2.4
-bokeh==0.12.13
-gensim==3.1.0
-pandas==0.22.0
-Flask_WTF==0.14.2
-WTForms==2.1
-Flask==0.12.2
-scikit_learn==0.19.1
+numpy==1.17.4
+nltk==3.4.5
+pandas==0.25.3
+bokeh==1.4.0
+Flask==1.1.1
+flask_session==0.3.1
+flask_wtf==0.14.2
+gensim==3.8.1
+scikit_learn==0.22.1
+WTForms==2.2.1
 ```
 
 ## Execute it
